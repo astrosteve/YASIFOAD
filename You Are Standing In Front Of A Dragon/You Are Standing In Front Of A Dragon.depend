@@ -1,0 +1,33 @@
+# depslib dependency file v1.0
+1512673728 source:c:\users\astrosteve\documents\coding\you are standing in front of a dragon\main.c
+	<stdio.h>
+	<stdlib.h>
+	"struct.h"
+
+1512673181 c:\users\astrosteve\documents\coding\you are standing in front of a dragon\struct.h
+
+1590018456 source:e:\coding\you are standing in front of a dragon\main.c
+	<stdio.h>
+	<stdlib.h>
+	<time.h>
+	<conio.h>
+	<ctype.h>
+	<string.h>
+	<stdbool.h>
+	"struct.h"
+	"generators.h"
+
+1590018456 e:\coding\you are standing in front of a dragon\struct.h
+	<stdbool.h>
+
+1590018753 e:\coding\you are standing in front of a dragon\generators.h
+
+1590004037 source:e:\coding\you are standing in front of a dragon\mainmenu.c
+	<stdio.h>
+	<stdlib.h>
+	<string.h>
+	"struct.h"
+
+1589734320 e:\coding\you are standing in front of a dragon\mainmenu.c
+	<stdio.h>
+
