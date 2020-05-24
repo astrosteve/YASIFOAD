@@ -1,0 +1,16 @@
+List as of 5/24/20:
+
+1. Complete implementation of item system. I estimate it's currently 75% done for acheiving barebones functionality.
+2. Revise fight engine to utilize curnpc.isalive to determine state as opposed to the current "result" system. Not started.
+3. Add in races for PC Character and non-monster npcs. Not started.
+4. Extend dungeon code to drop items. Not started.
+5. Have code start recognizing player death. Not started.
+
+KNOWN BUGS:
+
+1. Fight engine sometimes executes two turns in a row, both successfully attacking. I am hoping item 2 on TODO will fix this, as I can't 
+figure out why it's happening.
+
+2. Integer overflow on range() on Linux. Fix is trivial.
+
+Will be updated periodically.
