@@ -1,7 +1,6 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include <time.h>
-#include <conio.h>
 #include <ctype.h>
 #include <string.h>
 #include <stdbool.h>
@@ -20,7 +19,7 @@ int main()
     mainmenu(); // Call main game menu.
 
 
-    getch(); // Pauses
+    getchar(); // Pauses
     return 0;
 
 }
@@ -42,7 +41,7 @@ void chargen(void)   // Character generation - original version, now deprecated.
     pc.alive = true; // Player is alive
     printf("Your stats are:\n Strength: %i\n Intelligence: %i\n Hit Points: %i\n", pc.str, pc.intel, pc.hp);
     printf("Press any key.\n");
-    getch();
+    getchar();
 };
 
 
@@ -165,7 +164,7 @@ void clear(){ // Written by nbro on stackoverflow. see https://stackoverflow.com
 
 int range(int min, int max) // Better random number generation for small numbers. eg, 0 and 1.
 {
-  return min + (int) (rand() / (double) (RAND_MAX + 1) * (max - min + 1));
+  return min + (int) (rand() / (double) (RAND_MAX/2 + 1)* 2.0);
 }
 
 int roll (int quantity, int sides)   // Roll an arbitrarily sided die an arbitrary number of times.

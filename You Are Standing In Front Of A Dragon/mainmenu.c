@@ -39,7 +39,7 @@ void mainmenu()
         if (choice == 2)
         {
             printf("You cheeky bastard! You know this doesn't exist yet!\n I will have to now self destruct!\n");
-            return 0;
+            return;
         }
 
     }
@@ -95,7 +95,7 @@ int exploredungeon (int choice)
                 printf("You died, but we're overlooking it for now.\n");
                 // Change this once you figure out how death works.
                 pc.alive = true;
-                getch();
+                getchar();
             }
         }
 
