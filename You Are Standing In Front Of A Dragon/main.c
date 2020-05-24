@@ -1,6 +1,7 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include <time.h>
+#include <conio.h>
 #include <ctype.h>
 #include <string.h>
 #include <stdbool.h>
@@ -8,42 +9,20 @@
 #include "generators.h"
 
 int parser (char); // Not used yet, unsure if a parser routine is needed.
-int fighting (int lvl, int choice); // Fighting routine. Returning 1 means enemy is dead. Anything else = alive.
-// struct weapon curweap; // I honestly can't even remember what this was supposed to be for.
-
 
 int main()
 {
     srand (time(NULL)); /* Seeding the random number generator. Might want to implement a mersenne twister or similar in the future.*/
+    initinv(); // Initialize inventory. This isn't strictly necessary, but I'm doing it to be safe.
+    startinv(); // Hard coded starting inventory, using for testing. Temporary.
     genchar(); // Generate character
     mainmenu(); // Call main game menu.
 
 
-    getchar(); // Pauses
+    getch(); // Pauses
     return 0;
 
 }
-
-void chargen(void)   // Character generation - original version, now deprecated.
-{
-    printf("Welcome to the RPG game.\n");
-    printf("What is your name, adventurer? ");
-    scanf(" %[^\n]", pc.name);
-    printf("Welcome, %s.\n", pc.name);
-    pc.str = range(3,18); // None of these randomly generated stats do anything yet. All used stats are hard coded currently.
-    pc.intel = range(3,18); // Everything should eventually randomly generate with bonuses assigned dynamically.
-    pc.hptotal = 50;
-    pc.hp = 50;
-    pc.level = 1; // This should never start at anything but 1.
-    pc.attack = 4; // This should eventually change based on player stats.
-    pc.defense = 13; // This would eventually be a formula adding up worn armor stats, for instance.
-    pc.damage = 3; // This should eventually change based on player stats.
-    pc.alive = true; // Player is alive
-    printf("Your stats are:\n Strength: %i\n Intelligence: %i\n Hit Points: %i\n", pc.str, pc.intel, pc.hp);
-    printf("Press any key.\n");
-    getchar();
-};
-
 
 int fight(void)   /* Gonna beat on some monsters. */
 {
@@ -52,12 +31,13 @@ int fight(void)   /* Gonna beat on some monsters. */
     enemyinit(); // Select random enemy. from generators.h
 
     while (result < 3)   // 3 indicates enemy death, 4 indicates player death. Slowly changing it to work off pc.alive == true/false
-    {
+    {                    // result == 5 means inventory or other action that necessitates reprinting of menu.
         printf("You are standing in front of a %s.\n", curnpc.name);
         printf("Your hitpoints are %i.\n\n", pc.hp);
         printf("Your options:\n");
         printf("1. Attack\n");
-        printf("2. Run Away!!\n");
+        printf("2. Check inventory\n");
+        printf("99. Run Away!!\n");
         printf("Command? ");
         // Put an error check here at some point to look for out of range entries
         scanf("%d", &choice);
@@ -66,7 +46,7 @@ int fight(void)   /* Gonna beat on some monsters. */
         // printf("Result is %d\n", result); // Debug statement
     }
 
-    if (result == 3) // I should really set it to use the boolean pc.alive, rather than the old method I used at first.
+    if (result == 3) // I should probably create a npcdead boolean to mimic pc.alive and stop using the result system.
     {
         printf ("You have successfully killed the %s!\n", curnpc.name);
         return result; // return result for processing.
@@ -77,7 +57,7 @@ int fight(void)   /* Gonna beat on some monsters. */
         result = 4;
         return result; // return result for processing.
     }
-
+return result;
 };
 
 
@@ -85,6 +65,7 @@ int fighting(int lvl, int choice)   // This is the "fight engine" so to speak. W
 {
     // One execution of this function is intended to be one turn for the player. All possible actions to take should be built into this function.
     int damage, playatk; // playatk is the player's attack roll.
+    int loop; // For displaying inventory
 
     if (choice == 1)
     {
@@ -118,12 +99,26 @@ int fighting(int lvl, int choice)   // This is the "fight engine" so to speak. W
         }
 
     }
-    if (choice == 2)
+
+    if (choice == 2) { // Display inventory
+        loop = 0;
+
+        while (loop <= (invslot)) { // Go through inven and display all non-0 slots.
+
+            if (inven[loop].slot > 0) {
+            printf("%i. %s - %s\n", loop, (stanit[inven[loop].slot].name), (stanit[inven[loop].slot].desc)); // Cross reference integer in inven with stanit
+            }
+            loop++;
+        }
+        printf("\n");
+}
+
+    if (choice == 99)
     {
         printf ("Argh, you're running away! You coward!\n");
     }
     return choice;
-}
+};
 
 void enemyatk()   // One execution of this function is intended to be one turn for the npc. All possible actions to take should be built into this function.
 {
@@ -164,7 +159,7 @@ void clear(){ // Written by nbro on stackoverflow. see https://stackoverflow.com
 
 int range(int min, int max) // Better random number generation for small numbers. eg, 0 and 1.
 {
-  return min + (int) (rand() / (double) (RAND_MAX/2 + 1)* 2.0);
+  return min + (int) (rand() / (double) (RAND_MAX + 1) * (max - min + 1));
 }
 
 int roll (int quantity, int sides)   // Roll an arbitrarily sided die an arbitrary number of times.
@@ -183,3 +178,21 @@ int roll (int quantity, int sides)   // Roll an arbitrarily sided die an arbitra
     // printf("Die roll result is %i \n", result);
     return result;
 }
+
+void initinv(void) { // Used for clearing out inventory in event of death or other event that clears inventory.
+    int loop;
+    loop = 0; // Initialize for use
+
+    while (loop <= invslot) {
+        inven[loop].slot = 0; // Set everything to 0 to clear out player inventory.
+        loop++;
+    } // 25 is current inventory slots. Should match inven
+};
+
+void startinv(void) {
+
+    inven[0].slot=1;
+    inven[1].slot=2;
+    inven[2].slot=3; // Giving one of each existing item.
+
+};

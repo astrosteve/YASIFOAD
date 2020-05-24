@@ -11,18 +11,31 @@ int fight(void);
 int range(int min, int max);
 void enemyatk(void);
 void clear(void);
+void initinv(void);
+void startinv(void);
 struct playchar pc; // Player is of struct player
 int roll (int quantity, int sides);
+int fighting (int lvl, int choice); // Fighting routine. Returning 1 means enemy is dead. Anything else = alive.
+// struct weapon curweap; // I honestly can't even remember what this was supposed to be for.
 // All voids above are used in main.c
+
 void mainmenu(void); // Main game loop.
 void dungeon(void); // pick & adventure through dungeon
 void createdungeon(void);
 void enemyinit(void);
-int exploredungeon(int choice);
+void exploredungeon(int choice);
 void genchar(void);
 // void generaterooms(int roomtotal); // Obsolete, integrated into exploredungeon
 struct npc curnpc; // Current NPC in the room
+#define invslot 25 // Total inventory slots.
 
+struct inventory { // Trying to do this as an array of integers failed for some reason, so doing it a way I k
+
+    int slot; // Integer for slot number.
+
+};
+
+struct inventory inven[invslot]; // Player inventory slots. Can carry up to invslot things. Limit is arbitrary, can be changed.
 
 
 struct playchar // PC data structure.
@@ -75,6 +88,23 @@ struct weapon
     int damage; // Piercing, stabbing, etc. Not implemented yet.
 };
 
+struct itemtype
+{
+    char desc[45];
+    // struct in case I ever need to add more information.
+};
+
+
+
+struct items {
+
+    char name[30]; // Item name
+    char desc[160]; // Short description of item.
+    int weight; // Weight of item
+    int type; // Item type. Weapon, book, armor, etc.
+    int weaptype; // Integer referring
+    // I feel like there needs to be more here but cannot think of anything else.
+};
 
 struct dungeon   // This entire thing will be changed once I seriously implement dungeons.
 {
