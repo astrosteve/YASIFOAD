@@ -3,7 +3,6 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
-#include <conio.h>
 #include "struct.h"
 
 #define duntotal 3 // Total number of dungeons + 1 as array entry 0 is padding.
@@ -40,7 +39,7 @@ void mainmenu()
         if (choice == 2)
         {
             printf("You cheeky bastard! You know this doesn't exist yet!\n I will have to now self destruct!\n");
-            return 0;
+            return;
         }
 
     }
@@ -97,7 +96,7 @@ void exploredungeon (int choice)
                 // Change this once you figure out how death works.
                 pc.hp = pc.hptotal;
                 pc.alive = true;
-                getch();
+                getchar();
             }
         }
 

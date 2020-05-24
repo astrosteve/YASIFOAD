@@ -1,7 +1,6 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include <time.h>
-#include <conio.h>
 #include <ctype.h>
 #include <string.h>
 #include <stdbool.h>
@@ -19,7 +18,7 @@ int main()
     mainmenu(); // Call main game menu.
 
 
-    getch(); // Pauses
+    getchar(); // Pauses
     return 0;
 
 }

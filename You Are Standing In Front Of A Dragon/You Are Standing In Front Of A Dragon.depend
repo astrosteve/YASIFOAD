@@ -6,11 +6,10 @@
 
 1512673181 c:\users\astrosteve\documents\coding\you are standing in front of a dragon\struct.h
 
-1590349766 source:e:\coding\you are standing in front of a dragon\main.c
+1590357748 source:e:\coding\you are standing in front of a dragon\main.c
 	<stdio.h>
 	<stdlib.h>
 	<time.h>
-	<conio.h>
 	<ctype.h>
 	<string.h>
 	<stdbool.h>
@@ -20,13 +19,12 @@
 1590350874 e:\coding\you are standing in front of a dragon\struct.h
 	<stdbool.h>
 
-1590349781 e:\coding\you are standing in front of a dragon\generators.h
+1590352500 e:\coding\you are standing in front of a dragon\generators.h
 
-1590346516 source:e:\coding\you are standing in front of a dragon\mainmenu.c
+1590357767 source:e:\coding\you are standing in front of a dragon\mainmenu.c
 	<stdio.h>
 	<stdlib.h>
 	<string.h>
-	<conio.h>
 	"struct.h"
 
 1589734320 e:\coding\you are standing in front of a dragon\mainmenu.c
