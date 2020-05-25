@@ -4,16 +4,6 @@
 #include <stdlib.h>
 #include <string.h>
 
-#define duntotal 3 // Total number of dungeons + 1 as array entry 0 is padding.
-
-struct dungeon curdun[duntotal] =   // Hardcoded dungeons for now.
-{
-    {"Unused", "Should never be seen", 0, 0, 0},
-    {"The Test Dungeon 1", "A smelly dungeon", 5, 65, 0},
-    {"The Test Dungeon 2", "A slightly nicer dungeon", 8, 75, 6}
-};
-
-
 void dungeon()
 {
     int loop, choice;
