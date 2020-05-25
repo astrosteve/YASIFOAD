@@ -11,6 +11,4 @@ KNOWN BUGS:
 1. Fight engine sometimes executes two turns in a row, both successfully attacking. I am hoping item 2 on TODO will fix this, as I can't 
 figure out why it's happening.
 
-2. Integer overflow on range() on Linux. Fix is trivial.
-
 Will be updated periodically.

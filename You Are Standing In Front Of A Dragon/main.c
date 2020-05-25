@@ -158,7 +158,7 @@ void clear(){ // Written by nbro on stackoverflow. see https://stackoverflow.com
 
 int range(int min, int max) // Better random number generation for small numbers. eg, 0 and 1.
 {
-  return min + (int) (rand() / (double) (RAND_MAX + 1) * (max - min + 1));
+	return min + (int) (rand() / (double) (RAND_MAX/2 + 1)* 2.0);
 }
 
 int roll (int quantity, int sides)   // Roll an arbitrarily sided die an arbitrary number of times.
