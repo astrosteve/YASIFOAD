@@ -1,3 +1,5 @@
+// This file is for general-purpose, reusable routines like random number generators, rolls, etc.
+
 #include <stdio.h>
 #include <stdlib.h>
 #include <time.h>

@@ -1,3 +1,5 @@
+// This file is for anything character-related. Generation.. leveling-up.. that kind of stuff.
+
 #include <stdio.h>
 #include <stdlib.h>
 #include <time.h>

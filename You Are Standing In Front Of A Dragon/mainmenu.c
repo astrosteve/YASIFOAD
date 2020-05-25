@@ -1,3 +1,5 @@
+// GAME 42! THE GAME OF YOUR LIFE IN A DUNGEON!
+
 // This file contains everything related to the main menu loop of the game.
 // Dungeon-related stuff has been moved to a separate file.
 

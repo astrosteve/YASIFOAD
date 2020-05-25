@@ -1,3 +1,5 @@
+// This is the main routine of the program. Program flow stuff goes here. Other stuff should go elsewhere.
+
 #include <stdio.h>
 #include <stdlib.h>
 #include <time.h>

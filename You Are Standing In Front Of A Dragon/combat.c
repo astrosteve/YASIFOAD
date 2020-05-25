@@ -1,3 +1,6 @@
+// This file is for anything combat-related. 
+// "Make sure that you block, just like me!" -- Frank Lyon
+
 #include <stdio.h>
 #include <stdlib.h>
 #include <time.h>

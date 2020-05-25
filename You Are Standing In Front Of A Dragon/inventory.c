@@ -1,3 +1,6 @@
+// This file contains anything to do with the inventory system. 
+// Curse you Cienfuegos! (tm)
+
 #include <stdio.h>
 #include <stdlib.h>
 #include <time.h>

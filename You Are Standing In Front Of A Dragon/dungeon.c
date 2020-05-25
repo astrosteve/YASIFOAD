@@ -1,4 +1,4 @@
-// This file contains everything related to the dungeons.
+// This file contains everything related to the dungeons themselves. Actions within the dungeons may or may not be broken up into different files.
 
 #include <stdio.h>
 #include <stdlib.h>
@@ -77,7 +77,30 @@ void exploredungeon (int choice)
     }
 };
 
+void enemyinit()   // Creating an enemy for the current room.
+{
+    int idnum;
 
+    idnum = 0; // reset counter
+
+    idnum = range(0,(enemytotal-1)); // Select a random number between 0 and (enemytotal - 1) since stanen starts at 0
+    strcpy(curnpc.name, stanen[idnum].name); // Copy over the name from the standard enemies table. Just for the record, it took me 20 minutes to make this stupid line work.
+    curnpc.id = stanen[idnum].id; // Copy over ID and so on and so on for rest of block.
+    curnpc.race = stanen[idnum].race;
+    curnpc.str = stanen[idnum].str;
+    curnpc.dex = stanen[idnum].dex;
+    curnpc.con = stanen[idnum].con;
+    curnpc.intel = stanen[idnum].intel;
+    curnpc.wis = stanen[idnum].wis;
+    curnpc.cha = stanen[idnum].cha;
+    curnpc.hp = stanen[idnum].hp;
+    curnpc.level = stanen[idnum].level;
+    curnpc.attack = stanen[idnum].attack;
+    curnpc.defense = stanen[idnum].defense;
+    curnpc.damage = stanen[idnum].damage;
+    curnpc.weapon = stanen[idnum].weapon;
+    curnpc.money = stanen[idnum].money;
+};
 
 /* Original code. Left in for reference.
 void createdungeon() { // This will eventually be procedural, but that's a bit off.
