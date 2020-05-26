@@ -31,7 +31,16 @@
 		<Compiler>
 			<Add option="-Wall" />
 		</Compiler>
+		<Unit filename="character.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="combat.c">
+			<Option compilerVar="CC" />
+		</Unit>
 		<Unit filename="generators.h" />
+		<Unit filename="inventory.c">
+			<Option compilerVar="CC" />
+		</Unit>
 		<Unit filename="main.c">
 			<Option compilerVar="CC" />
 		</Unit>

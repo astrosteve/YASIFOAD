@@ -1,6 +1,16 @@
 /* Game Structures. */
 
+#ifndef STRUCT_H
+#define STRUCT_H
+#endif
+
 #include <stdbool.h>
+
+#define invslot 25 // Total inventory slots.
+#define weapontotal 3 // Total number of weapons in npcweap.
+#define itemtotal 4 // Total number of entries in stanit.
+#define typetotal 4 //Total number of entries in itemtypes
+
 
 void chargen(void);
 void RoomGen(void);
@@ -27,7 +37,6 @@ void exploredungeon(int choice);
 void genchar(void);
 // void generaterooms(int roomtotal); // Obsolete, integrated into exploredungeon
 struct npc curnpc; // Current NPC in the room
-#define invslot 25 // Total inventory slots.
 
 struct inventory { // Trying to do this as an array of integers failed for some reason, so doing it a way I k
 
@@ -88,6 +97,8 @@ struct weapon
     int damage; // Piercing, stabbing, etc. Not implemented yet.
 };
 
+struct weapon npcweap[weapontotal];
+
 struct itemtype
 {
     char desc[45];
@@ -105,6 +116,8 @@ struct items {
     int weaptype; // Integer referring
     // I feel like there needs to be more here but cannot think of anything else.
 };
+
+struct items stanit[typetotal];
 
 struct dungeon   // This entire thing will be changed once I seriously implement dungeons.
 {
