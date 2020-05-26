@@ -1,6 +1,16 @@
 /* Game Structures. */
 
+#ifndef STRUCT_H
+#define STRUCT_H
+#endif
+
 #include <stdbool.h>
+
+#define invslot 25 // Total inventory slots.
+#define weapontotal 3 // Total number of weapons in npcweap.
+#define itemtotal 4 // Total number of entries in stanit.
+#define typetotal 4 //Total number of entries in itemtypes
+
 
 void chargen(void);
 void RoomGen(void);
@@ -27,8 +37,6 @@ void exploredungeon(int choice);
 void genchar(void);
 // void generaterooms(int roomtotal); // Obsolete, integrated into exploredungeon
 struct npc curnpc; // Current NPC in the room
-#define invslot 25 // Total inventory slots.
-#define duntotal 3 // Total number of dungeons + 1 as array entry 0 is padding.
 
 struct inventory { // Trying to do this as an array of integers failed for some reason, so doing it a way I k
 
@@ -89,6 +97,8 @@ struct weapon
     int damage; // Piercing, stabbing, etc. Not implemented yet.
 };
 
+struct weapon npcweap[weapontotal];
+
 struct itemtype
 {
     char desc[45];
@@ -107,6 +117,8 @@ struct items {
     // I feel like there needs to be more here but cannot think of anything else.
 };
 
+struct items stanit[typetotal];
+
 struct dungeon   // This entire thing will be changed once I seriously implement dungeons.
 {
     char name[25]; /* Name. Not yet implemented. */
@@ -114,13 +126,6 @@ struct dungeon   // This entire thing will be changed once I seriously implement
     int rooms; /* number of rooms in dungeon */
     int npcc; /* Percent chance of an NPC spawning in a room. */
     int npcl; /* Hard limit of NPCs in dungeon. Once you get to this number, no more NPCs generate randomly. 0 means no limit */
-};
-
-struct dungeon curdun[duntotal] =   // Hardcoded dungeons for now.
-{
-    {"Unused", "Should never be seen", 0, 0, 0},
-    {"The Test Dungeon 1", "A smelly dungeon", 5, 65, 0},
-    {"The Test Dungeon 2", "A slightly nicer dungeon", 8, 75, 6}
 };
 
 struct room {

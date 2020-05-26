@@ -1,12 +1,46 @@
-// This file is for anything combat-related. 
-// "Make sure that you block, just like me!" -- Frank Lyon
+// Combat engine functions
 
 #include <stdio.h>
-#include <stdlib.h>
-#include <time.h>
-#include <ctype.h>
 #include <string.h>
-#include <stdbool.h>
+#include "struct.h"
+
+
+#define enemytotal 3 // Count for the total number of npcs defined in genenemies.
+// This should never change during execution, so it's constant.
+// I used #define so it could initlize the array, as opposed to const int
+
+struct npc stanen[enemytotal] =   // Array that holds npc data. This is for "standard" (not procedurally generated) enemies.
+{   // Name, ID, race, str, dex, con, intel, wis, cha, hp, level, attack, defense, damage, weapon, money
+    {"Skeleton", 1, 1, 6, 13, 8, 6, 4, 3, 8, 1, 6, 12, 3, 0, 15},
+    {"Goblin", 2, 1, 6, 13, 8, 6, 4, 3, 8, 1, 6, 12, 3, 1, 15},
+    {"Kobold", 3, 1, 6, 12, 7, 7, 3, 5, 8, 2, 2, 10, 3, 2, 15}
+
+};
+
+void enemyinit()   // Creating an enemy for the current room.
+{
+    int idnum;
+
+    idnum = 0; // reset counter
+
+    idnum = range(0,(enemytotal-1)); // Select a random number between 0 and (enemytotal - 1) since stanen starts at 0
+    strcpy(curnpc.name, stanen[idnum].name); // Copy over the name from the standard enemies table. Just for the record, it took me 20 minutes to make this stupid line work.
+    curnpc.id = stanen[idnum].id; // Copy over ID and so on and so on for rest of block.
+    curnpc.race = stanen[idnum].race;
+    curnpc.str = stanen[idnum].str;
+    curnpc.dex = stanen[idnum].dex;
+    curnpc.con = stanen[idnum].con;
+    curnpc.intel = stanen[idnum].intel;
+    curnpc.wis = stanen[idnum].wis;
+    curnpc.cha = stanen[idnum].cha;
+    curnpc.hp = stanen[idnum].hp;
+    curnpc.level = stanen[idnum].level;
+    curnpc.attack = stanen[idnum].attack;
+    curnpc.defense = stanen[idnum].defense;
+    curnpc.damage = stanen[idnum].damage;
+    curnpc.weapon = stanen[idnum].weapon;
+    curnpc.money = stanen[idnum].money;
+};
 
 int fight(void)   /* Gonna beat on some monsters. */
 {

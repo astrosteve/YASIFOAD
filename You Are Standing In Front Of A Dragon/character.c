@@ -1,11 +1,8 @@
-// This file is for anything character-related. Generation.. leveling-up.. that kind of stuff.
+// Character generation routines.
 
 #include <stdio.h>
 #include <stdlib.h>
-#include <time.h>
-#include <ctype.h>
-#include <string.h>
-#include <stdbool.h>
+#include "struct.h"
 
 void genchar(void) {
     char ans[1]; // For answering questions
@@ -37,4 +34,3 @@ void genchar(void) {
     };
 
 };
-
