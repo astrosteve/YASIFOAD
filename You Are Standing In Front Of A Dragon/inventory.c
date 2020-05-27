@@ -24,6 +24,14 @@ struct weapon npcweap[weapontotal] =   // STARTS AT 0. A Sword is 0, a Mace is 1
 
 }; // Even though it says npcweap, it's going to be used for the player as well.
 
+struct armor armortype[armortotal] = {
+
+    // Name, Description, slot, ac
+    {"breastplate", "a standard breastplate",     },
+
+};
+
+
 void initinv(void) { // Used for clearing out inventory in event of death or other event that clears inventory.
     int loop;
     loop = 0; // Initialize for use

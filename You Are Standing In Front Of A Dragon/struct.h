@@ -10,6 +10,7 @@
 #define weapontotal 3 // Total number of weapons in npcweap.
 #define itemtotal 4 // Total number of entries in stanit.
 #define typetotal 4 //Total number of entries in itemtypes
+#define armortotal 3 // Number of items in armor table.
 
 
 void chargen(void);
@@ -52,7 +53,7 @@ struct playchar // PC data structure.
 {
     char name[30];
     int race;
-    int cclass; // Not sure how classes with work. cclass because class is reserved already.
+    int cclass; // Not sure how classes will work. cclass because class is reserved already.
     int str;
     int dex;
     int con;
@@ -146,3 +147,27 @@ struct room {
     int item1; // Two item slots for room. Items currently not implemented.
     int item2; // Want to explore the idea of unlimited items per room, but unsure how to do that.
 };
+
+struct armor {
+
+    char name[30]; // Name of armor
+    char desc[160]; // Longer description of armor.
+    int slot; // Slot armor is worn on. References armorslot table
+    int ac; // Armor Class
+
+};
+
+struct armor armortype[armortotal];
+
+// Slot definitions.
+// Can use slot name instead of having to remember numbers. Also make it easier to change slot number if needed for some reason.
+
+#define headslot 1
+#define chestslot 2
+#define legslot 3
+#define feetslot 4
+#define ringrslot 5
+#define ringlslot 6
+#define neckslot 7
+
+
