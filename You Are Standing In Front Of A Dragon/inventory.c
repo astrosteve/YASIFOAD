@@ -31,7 +31,20 @@ void initinv(void) { // Used for clearing out inventory in event of death or oth
     while (loop <= invslot) {
         inven[loop].slot = 0; // Set everything to 0 to clear out player inventory.
         loop++;
-    } // 25 is current inventory slots. Should match inven
+    }
+};
+
+void cleararmor(void) { // Clear armor slots.
+
+    pc.head = 0;
+    pc.arms = 0;
+    pc.chest = 0;
+    pc.legs = 0;
+    pc.feet = 0;
+    pc.ringr = 0;
+    pc.ringl = 0;
+    pc.neck = 0;
+
 };
 
 void startinv(void) {

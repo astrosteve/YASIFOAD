@@ -36,6 +36,7 @@ void enemyinit(void);
 void exploredungeon(int choice);
 void genchar(void);
 // void generaterooms(int roomtotal); // Obsolete, integrated into exploredungeon
+void cleararmor(void);
 struct npc curnpc; // Current NPC in the room
 
 struct inventory { // Trying to do this as an array of integers failed for some reason, so doing it a way I k
@@ -51,6 +52,7 @@ struct playchar // PC data structure.
 {
     char name[30];
     int race;
+    int cclass; // Not sure how classes with work. cclass because class is reserved already.
     int str;
     int dex;
     int con;
@@ -64,6 +66,15 @@ struct playchar // PC data structure.
     int defense;
     int damage;
     int money;
+    int head; // Head equipment slot. Integer corresponds to spot in Armor array
+    int arms; // Armor slot
+    int chest; // Armor slot
+    int legs; // Armor slot
+    int feet; // Armor slot
+    int ringr; // Right hand ring
+    int ringl; // Left hand ring
+    int neck; // Armor slot, for necklaces, amulets, etc.
+    int gender; // M/F/Other
     bool alive;
 };
 
