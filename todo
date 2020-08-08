@@ -12,10 +12,3 @@ KNOWN BUGS:
 figure out why it's happening.
 
 Will be updated periodically.
-
-Updates:
-
-5/24/20 - 11:25pm 
--- Added PC armor slots and added a few extra fields to player data structure. 
--- Added routine to reset armor slots.
--- Armor is final component of barebones inventory system. Barebones item functionality is about 90% complete right now.
